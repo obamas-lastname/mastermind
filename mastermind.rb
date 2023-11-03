@@ -52,12 +52,9 @@ end
 def round(colors)
     guess2 = comp_guess(colors)
     for i in 1..12
-        loop do
-            guess1 = usr_guess(colors)
-            #compare(guess1, guess2)
-            if(compare(guess1, guess2)==1)
-                return
-            end
+        guess1 = usr_guess(colors)
+        if(compare(guess1, guess2)==1)
+            return
         end
     end
     puts "Your number of tries are over! The correct answer was #{guess2}"
