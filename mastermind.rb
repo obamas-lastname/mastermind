@@ -1,13 +1,3 @@
-#  class item
-#     attr_accessor :color, :exists
-
-#     def initialize(color, position)
-#         @color = color
-#         @position = position
-#         exits = true
-#     end
-#end
- 
 colors = Array.new(6)
 colors[0] = "red"
 colors[1] = "orange"
@@ -61,7 +51,6 @@ end
 
 def round(colors)
     guess2 = comp_guess(colors)
-    #puts guess2
     for i in 1..12
         loop do
             guess1 = usr_guess(colors)
