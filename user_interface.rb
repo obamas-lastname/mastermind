@@ -1,6 +1,6 @@
 
 class UserInterface
-    def get_user_guess(colors)
+    def self.get_user_guess(colors)
         puts "Type 4 colors from the following list in the order you wish to guess, separated by a space:"
         view(colors)
         a = gets.chomp
