@@ -1,5 +1,5 @@
 
-class MasterMindGameLogic
+class MastermindGameLogic
     def initialize(colors)
         @colors = colors
         @secret_code = generate_secret_code
