@@ -1,13 +1,18 @@
 
 class MastermindGameLogic
+  attr_accessor :secret_code
     def initialize(colors)
         @colors = colors
-        @secret_code = generate_secret_code
+        @secret_code = computer_guess(colors)
         @attempts = 0
     end
 
-    def generate_secret_code(colors)
-        @colors.sample(4)
+    def generate_user_code(user_code)
+      @secret_code = user_code
+    end
+
+    def computer_guess(colors)
+      @colors.sample(4)
     end
 
     def compare_guess(guess)
@@ -24,7 +29,7 @@ class MastermindGameLogic
         [correct, exists]
     end
     
-    def play_round
+    def play_round2
         guess = UserInterface.get_user_guess(@colors)
         @attempts += 1
         correct, exists = compare_guess(guess)
@@ -34,6 +39,18 @@ class MastermindGameLogic
         else
           UserInterface.display_guess_feedback(correct, exists, @attempts)
         end
+    end
+
+    def play_round1
+      guess = computer_guess(@colors)
+      @attempts += 1
+      correct, exists = compare_guess(guess)
+
+      if correct == 4
+        UserInterface.display_win_message
+      else
+        UserInterface.display_guess_feedback(correct, exists, @attempts)
       end
+    end
 
 end
