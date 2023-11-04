@@ -8,6 +8,20 @@ class UserInterface
         array
     end
 
+    def self.get_user_code(colors)
+        puts "Type 4 colors from the following list that will form your secret code, separated by a space:"
+        view(colors)
+        a = gets.chomp
+        array = a.split(' ')
+        array
+    end
+
+    def self.get_user_choice
+        puts "Do you want to create the secret code or guess it? (1/2)"
+        a = gets.chomp
+        a.to_i
+    end
+
     def self.display_guess_feedback(correct, exists, attempts)
         puts "#{exists} colors guessed right, but at the wrong position"
         puts "#{correct} colors guessed right, at the right position"
